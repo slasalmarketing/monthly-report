@@ -123,6 +123,40 @@
 .gradient7 {background: linear-gradient(270deg, #028090, #02C39A, #00A896, #02C39A); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
 .gradient8 {background: linear-gradient(270deg, #6A0572, #370617, #D90368, #370617); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
 .gradient9 {background: linear-gradient(270deg, #00A896, #028090, #05668D, #028090); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+    /* Responsive adjustments */
+@media (max-width:1024px) {
+  .container { padding:20px; }
+  header { flex-direction: column; align-items:flex-start; gap:12px; }
+  .brand h1 { font-size:18px; }
+  .subtitle { font-size:12px; }
+  .summary{flex-direction:row; flex-wrap:wrap; gap:10px;}
+  .stat{flex:1 1 45%; margin-bottom:10px;}
+  .bars{flex-direction:column; gap:12px;}
+}
+
+@media (max-width:768px) {
+  .container { padding:16px; }
+  .brand h1 { font-size:16px; }
+  .logo{width:52px; height:52px; font-size:18px;}
+  .subtitle{font-size:11px;}
+  .stat{flex:1 1 100%;}
+  .insight{flex:1 1 45%; font-size:14px;}
+  .zero{flex-direction:column; align-items:flex-start; gap:12px;}
+  .badge{width:100%; text-align:center;}
+}
+
+@media (max-width:480px) {
+  body{font-size:14px;}
+  .logo{width:48px; height:48px; font-size:16px;}
+  .brand h1{font-size:15px;}
+  .subtitle{font-size:10px;}
+  .summary{gap:8px;}
+  .stat{flex:1 1 100%;}
+  .insight{flex:1 1 100%; font-size:13px; padding:12px;}
+  .bars .bar .label{font-size:12px;}
+  .callout{flex-direction:column; gap:10px;}
+}
+
 
   </style>
 </head>
