@@ -89,19 +89,41 @@
         transform: translateY(0);
       }
     }
-    .card-1{text-align: center;}
-    .callout {
-    margin-top: 22px;
-    padding: 16px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgba(0, 184, 148, 0.08), rgba(255, 209, 102, 0.06));
-    color: var(--white);
-    display: flex
-;
-    align-items: center;
-    justify-content: space-between;
-    line-height: 2.5;
+    .insights { display:flex; flex-wrap:wrap; gap:12px; }
+.insight {
+  flex:1 1 120px;
+  text-align:center;
+  padding:14px;
+  border-radius:10px;
+  color:#fff;
+  font-weight:600;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+/* Hover effect */
+.insight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
+
+/* Gradient animations */
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.gradient1 {background: linear-gradient(270deg, #05668D, #028090, #00A896, #028090); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient2 {background: linear-gradient(270deg, #02C39A, #F0A500, #F38400, #F0A500); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient3 {background: linear-gradient(270deg, #D90368, #6A0572, #370617, #6A0572); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient4 {background: linear-gradient(270deg, #05668D, #00A896, #028090, #00A896); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient5 {background: linear-gradient(270deg, #F38400, #F0A500, #02C39A, #F0A500); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient6 {background: linear-gradient(270deg, #370617, #D90368, #6A0572, #D90368); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient7 {background: linear-gradient(270deg, #028090, #02C39A, #00A896, #02C39A); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient8 {background: linear-gradient(270deg, #6A0572, #370617, #D90368, #370617); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+.gradient9 {background: linear-gradient(270deg, #00A896, #028090, #05668D, #028090); background-size: 600% 600%; animation: gradientMove 8s ease infinite;}
+
   </style>
 </head>
 <body>
@@ -119,12 +141,30 @@
         <div class="small">Prepared on:  27-09-2025</div>
       </div>
     </header>
+<section class="card">
+  <h3 style="margin:0 0 16px 0; font-size:18px; color:var(--accent-2)">المنصات والأفكار البرمجية المتقدمة</h3>
+  <p class="small" style="margin-bottom:14px;">
+    الفريق عمل على مجموعة متنوعة من المنصات والتقنيات، بالإضافة إلى تطوير حلول برمجية مخصصة لتعزيز الإنتاجية وكفاءة العمل:
+  </p>
 
+  <div class="insights" style="gap:12px; flex-wrap:wrap;">
+    <div class="insight gradient1">Salla</div>
+    <div class="insight gradient2">Zid</div>
+    <div class="insight gradient3">Shopify</div>
+    <div class="insight gradient4">WordPress</div>
+    <div class="insight gradient5">OpenCart</div>
+    <div class="insight gradient6">منصات أخرى</div>
+    <div class="insight gradient7">Salla App</div>
+    <div class="insight gradient8">تصميم برمجيات خاصة</div>
+    <div class="insight gradient9">التعامل مع  مواقع البــــرمجه الخـــاصه</div>
+    
+  </div>
+</section>
     <div class="intro">
       <p>الأرقام هي اللي بتتكلم عن القسم — نجاح القسم مش بس في إنجاز المهام، لكن في إن السيستم المعمول هو الأساس اللي بيخلي الأداء ثابت، سريع، ومنظم.</p>
     </div>
 
-    <section class="card card-1">
+    <section class="card">
       <div class="summary">
         <div class="stat">
           <h3>إجمالي التاسكات</h3>
@@ -227,12 +267,6 @@
           <h4>قوة السيستم الداخلي</h4>
           <div class="small">نجاح المهام في وقتها لم يكن صدفة؛ بل نتيجة **وجود نظام عمل واضح (System & Workflow)** يضمن سرعة الاستجابة، وضبط الأولويات، ومتابعة التنفيذ بدقة.</div>
         </div>
-                <div class="insight">
-          <h4>سرعة واستجابة الفريق
- </h4>
-          <div class="small">الفريق يرد على أي استفسار في جروب SEO خلال 15 دقيقة ويحل مشاكل العملاء والطلبات في نفس الوقت، مما يضمن سير العمل بسلاسة وكفاءة عالية.</div>
-        </div>
-
       </div>
 
       <div class="callout" style="margin-top:16px">
