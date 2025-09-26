@@ -1,15 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تقرير الإنتاجية</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تقرير إنجازات الفريق — يونيو-أغسطس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark slide */
+      --card:#0b1220;
+      --accent:#00b894;
+      --muted:#9aa3b2;
+      --glass: rgba(255,255,255,0.04);
+      --white: #ffffff;
+      --accent-2: #ffd166;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Cairo',sans-serif;margin:0;background:linear-gradient(180deg,#071022 0%, #0b1220 100%);color:var(--white);line-height:1.5}
+    .container{max-width:1100px;margin:28px auto;padding:24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#0571c9);display:flex;align-items:center;justify-content:center;font-weight:900}
+    .brand h1{margin:0;font-size:20px}
+    .subtitle{color:var(--muted);font-size:13px}
+
+    .intro{margin-top:20px;padding:20px;background:linear-gradient(90deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border-radius:14px;font-size:15px;line-height:1.7}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:14px;padding:18px;margin-top:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+
+    /* summary row */
+    .summary{display:flex;gap:14px;flex-wrap:wrap}
+    .stat{flex:1;min-width:180px;padding:12px;border-radius:10px;background:var(--glass);}
+    .stat h3{margin:0 0 6px 0;font-size:15px}
+    .stat p{margin:0;font-size:20px;font-weight:700}
+    .small{color:var(--muted);font-size:13px}
+
+    /* table */
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:12px 10px;text-align:right}
+    th{font-weight:700;color:var(--muted);font-size:13px}
+    tr+tr td{border-top:1px dashed rgba(255,255,255,0.04)}
+
+    /* bars */
+    .bars{display:flex;gap:12px;margin-top:14px}
+    .bar{flex:1;background:rgba(255,255,255,0.03);padding:14px;border-radius:10px}
+    .bar .label{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .bar .g{height:14px;border-radius:8px;background:rgba(255,255,255,0.06);overflow:hidden}
+    .bar .g > i{display:block;height:100%;border-radius:8px}
+    .b-jun i{width:30%;background:linear-gradient(90deg,#56CCF2,#2F80ED)}
+    .b-jul i{width:27%;background:linear-gradient(90deg,#6AE7B8,#00B894)}
+    .b-aug i{width:43%;background:linear-gradient(90deg,#FFD166,#FF7A00)}
+
+    /* Zero Delay slide */
+    .zero{margin-top:20px;padding:28px;border-radius:14px;background:linear-gradient(90deg,#071A2B 0%, #092033 100%);border:1px solid rgba(255,255,255,0.05);display:flex;gap:18px;align-items:center}
+    .zero .left{flex:1}
+    .zero h2{margin:0 0 6px 0;font-size:20px;color:var(--accent-2)}
+    .zero p{margin:0;color:var(--muted)}
+    .badge{background:linear-gradient(45deg,var(--accent), #0571c9);padding:10px 14px;border-radius:12px;font-weight:700}
+
+    /* insights */
+    .insights{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .insight{flex:1;min-width:220px;padding:14px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .insight h4{margin:0 0 8px 0}
+
+    /* footer / callout */
+    .callout{margin-top:22px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(0,184,148,0.08), rgba(255,209,102,0.06));color:var(--white);display:flex;align-items:center;justify-content:space-between}
+    .callout strong{font-size:16px}
+
+    /* responsive */
+    @media (max-width:720px){.summary{flex-direction:column}.zero{flex-direction:column;align-items:flex-start}}
+
+    /* print styles */
+    @media print{
+      body{background:white;color:#000}
+      .card, .zero, .insight, .stat{background:transparent;box-shadow:none}
+    }
+     /* Animation */
+    .thanks {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1.4s ease forwards;
+      animation-delay: .3s;
+    }
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>تقرير الإنتاجية</h1>
-  <p>معدل الفرد: 0.72 تاسك/ساعة</p>
-  <p>تاسك كل ≈ 1.4 ساعة</p>
-  <script src="script.js"></script>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"> CRO</div>
+        <div>
+          <h1>تقرير إنجازات الفريق — يونيو إلى أغسطس</h1>
+          <div class="subtitle">فترة التقرير: 3 شهور — فريق مكوّن من  Agent  2 + Head</div>
+        </div>
+      </div>
+      <div style="text-align:left">
+        <div class="small">Prepared for: Management Meeting (Monthly)</div>
+        <div class="small">Prepared on: تاريخ الاجتماع</div>
+      </div>
+    </header>
+
+    <div class="intro">
+      <p>الأرقام هي اللي بتتكلم عن القسم — نجاح القسم مش بس في إنجاز المهام، لكن في إن السيستم المعمول هو الأساس اللي بيخلي الأداء ثابت، سريع، ومنظم.</p>
+    </div>
+
+    <section class="card">
+      <div class="summary">
+        <div class="stat">
+          <h3>إجمالي التاسكات</h3>
+          <p>346</p>
+          <div class="small">يونيو-يوليو-أغسطس</div>
+        </div>
+        <div class="stat">
+          <h3>متوسط شهري</h3>
+          <p>173</p>
+          <div class="small">تقريبًا لكل شهر</div>
+        </div>
+        <div class="stat">
+          <h3>معدل الفرد</h3>
+          <p>تاسك كل ≈2.7 ساعة</p>
+        </div>
+        <div class="stat">
+          <h3>ساعات العمل (لكل فرد)</h3>
+          <p>321 ساعة</p>
+          <div class="small">22 يوم × 7.3 ساعة × 3 شهور</div>
+        </div>
+      </div>
+
+      <table aria-label="تفاصيل الشهور">
+        <thead>
+          <tr>
+            <th>الشهر</th>
+            <th>تكنيكال</th>
+            <th>ماركتينج</th>
+            <th>الإجمالي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>يونيو</td>
+            <td>105</td>
+            <td>-</td>
+            <td>105</td>
+          </tr>
+          <tr>
+            <td>يوليو</td>
+            <td>99</td>
+            <td>-</td>
+            <td>99</td>
+          </tr>
+          <tr>
+            <td>أغسطس</td>
+            <td>117</td>
+            <td>25</td>
+            <td>142</td>
+          </tr>
+          <tr style="font-weight:700;color:var(--accent-2)">
+            <td>الإجمالي</td>
+            <td>321</td>
+            <td>25</td>
+            <td>346</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="bars">
+        <div class="bar b-jun">
+          <div class="label">يونيو — 105 تاسك</div>
+          <div class="g"><i></i></div>
+        </div>
+        <div class="bar b-jul">
+          <div class="label">يوليو — 99 تاسك</div>
+          <div class="g"><i></i></div>
+        </div>
+        <div class="bar b-aug">
+          <div class="label">أغسطس — 142 تاسك</div>
+          <div class="g"><i></i></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="zero card">
+      <div class="left">
+        <h2>🚀 Zero Delays — 100% On-Time Delivery</h2>
+        <p>خلال 3 شهور: <strong>ولا تاسك واحد عدى الديدلاين</strong>. أي تاسك جديد يُستلم ويبدأ العمل عليه خلال <strong>≤ ساعتين</strong> من وقت نزوله.</p>
+      </div>
+      <div class="badge">سـرعة استجابة ≤ 2 ساعة</div>
+    </section>
+
+    <section class="card">
+      <h3 style="margin:0 0 8px 0">🌟 Insights & Recommendations</h3>
+      <div class="insights">
+        <div class="insight">
+          <h4>كفاءة الفريق</h4>
+          <div class="small">فريق صغير (3 أفراد) حقق 346 تاسك في 3 شهور، معدل إنتاجية قوي يدل على تنظيم وسلاسة في العمليات.</div>
+        </div>
+        <div class="insight">
+          <h4>تنويع المهام</h4>
+          <div class="small">نجاح في التعامل مع مهام تكنيكال ووجود بداية واضحة للماركتينج. ننصح بتوثيق الـprocess لكل نوع تاسك لتسريع on-boarding.</div>
+        </div>
+        <div class="insight">
+          <h4>Recommendation</h4>
+          <div class="small">توثيق ديدلاين وSLA داخل تكتات المشروع، وبدأ قياس تحسينات (مثلاً تقليل وقت الاستلام إلى ≤1 ساعة) وخطة لرفع الإنتاجية 10% في الكوارتر القادم.</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:16px">
+        <div>
+          <strong>نصيحة للعرض:</strong>
+          <div class="small">اعرض الشريحة الخاصة بـ <em>Zero Delays</em> في منتصف التوك واطلب تصفيق سريع — ده هيخلق تأثير "Wow".</div>
+        </div>
+        <div class="small">Prepared by: Eng Mohamed Rashed</div>
+      </div>
+    </section>
+    <section class="thanks card">
+      <h3 style="margin:0 0 8px 0; text-align:center">🙏 شكر وتقدير</h3>
+      <p style="text-align:center; color:var(--muted); font-size:15px; line-height:1.8">
+        شكر خاص لفريق <strong style="color:var(--accent)">CRO</strong> — 
+        <em> </em> — اللي كان له دور محوري في تحقيق الأرقام والنجاحات دي.  
+        نجاح القسم هو انعكاس مباشر لجهدكم، التزامكم، وروح الفريق اللي بتصنع الفارق.  
+      </p>
+    </section>
+    <section class="thanks card">
+      <h3 style="margin:0 0 12px 0; text-align:center">🙏 شكر وتقدير</h3>
+      <p style="text-align:center; color:var(--muted); font-size:15px; line-height:1.8; margin-top:12px">
+        كما أتوجه بخالص الشكر إلى قسم <strong style="color:var(--accent-2)">SEO</strong>  
+        المتمثل في <strong>م. مروه محمود</strong> — Head of Department،  
+        وإلى قسم <strong style="color:var(--accent-2)">Operations</strong>  
+        المتمثل في <strong>م. سامح</strong>، على دعمهم المستمر وتعاونهم الفعّال اللي ساعدنا نحقق أهدافنا.
+      </p>
+    </section>
+
+    <footer style="text-align:center;color:var(--muted);margin-top:18px;font-size:13px">
+      © تقرير جاهز للعرض — استخدمه في التوك الشهري. لو عايز نسخة PDF اطبع الصفحة أو احفظها كـ PDF.
+    </footer>
+  </div>
+
+  <style>
+
+    <footer style="text-align:center;color:var(--muted);margin-top:18px;font-size:13px">
+      © تقرير جاهز للعرض — استخدمه في التوك الشهري. لو عايز نسخة PDF اطبع الصفحة أو احفظها كـ PDF.
+    </footer>
+  </div>
+
+  <style>
+
+    <footer style="text-align:center;color:var(--muted);margin-top:18px;font-size:13px">
+      © تقرير جاهز للعرض — استخدمه في التوك الشهري. لو عايز نسخة PDF اطبع الصفحة أو احفظها كـ PDF.
+    </footer>
+  </div>
 </body>
 </html>
